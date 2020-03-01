@@ -524,7 +524,7 @@ class options : private Uncopyable,
   wxScrolledWindow *m_ChartDisplayPage;
 
   // For the "AIS" page
-  wxCheckBox *m_pCheck_CPA_Max, *m_pCheck_CPA_Warn, *m_pCheck_CPA_WarnT;
+  wxCheckBox *m_pCheck_CPA_Max, *m_pCheck_CPA_Warn, *m_pCheck_CPA_WarnT, *m_pCheck_Range_Warn;
   wxCheckBox *m_pCheck_Mark_Lost, *m_pCheck_Remove_Lost, *m_pCheck_Show_COG;
   wxCheckBox *m_pCheck_Show_Tracks, *m_pCheck_Hide_Moored, *m_pCheck_Scale_Priority;
   wxCheckBox *m_pCheck_AlertDialog, *m_pCheck_AlertAudio;
@@ -534,7 +534,7 @@ class options : private Uncopyable,
   wxCheckBox *m_pCheck_Draw_Target_Size, *m_pCheck_Draw_Realtime_Prediction;
   wxCheckBox *m_pCheck_Show_Target_Name;
   wxCheckBox *m_pCheck_Wpl_Aprs, *m_pCheck_ShowAllCPA;
-  wxTextCtrl *m_pText_CPA_Max, *m_pText_CPA_Warn, *m_pText_CPA_WarnT;
+  wxTextCtrl *m_pText_CPA_Max, *m_pText_CPA_Warn, *m_pText_CPA_WarnT, *m_pText_Range_Warn;
   wxTextCtrl *m_pText_Mark_Lost, *m_pText_Remove_Lost, *m_pText_COG_Predictor;
   wxTextCtrl *m_pText_Track_Length, *m_pText_Moored_Speed, *m_pText_Scale_Priority;
   wxTextCtrl *m_pText_ACK_Timeout, *m_pText_Show_Target_Name_Scale;

@@ -181,6 +181,8 @@ extern bool g_bCPAWarn;
 extern double g_CPAWarn_NM;
 extern bool g_bTCPA_Max;
 extern double g_TCPA_Max;
+extern bool g_bRangeWarn;
+extern double g_RangeWarn_NM;
 extern bool g_bMarkLost;
 extern double g_MarkLost_Mins;
 extern bool g_bRemoveLost;
@@ -5430,6 +5432,15 @@ void options::CreatePanel_AIS(size_t parent, int border_size,
   pCPAGrid->Add(m_pText_CPA_WarnT, 0, wxALL | wxALIGN_RIGHT,
                 group_item_spacing);
 
+
+  m_pCheck_Range_Warn =
+      new wxCheckBox(panelAIS, -1, _("Warn if Range less than (NMi)"));
+  pCPAGrid->Add(m_pCheck_Range_Warn, 0, wxALL, group_item_spacing);
+
+  m_pText_Range_Warn =
+      new wxTextCtrl(panelAIS, -1, _T(""), wxDefaultPosition, wxSize(-1, -1));
+  pCPAGrid->Add(m_pText_Range_Warn, 0, wxALL | wxALIGN_RIGHT, group_item_spacing);
+
   //      Lost Targets
   wxStaticBox* lostBox = new wxStaticBox(panelAIS, wxID_ANY, _("Lost Targets"));
   wxStaticBoxSizer* lostSizer = new wxStaticBoxSizer(lostBox, wxVERTICAL);
@@ -6517,6 +6528,11 @@ void options::SetInitialSettings(void) {
   s.Printf(_T("%4.0f"), g_TCPA_Max);
   m_pText_CPA_WarnT->SetValue(s);
 
+  m_pCheck_Range_Warn->SetValue(g_bRangeWarn);
+
+  s.Printf(_T("%4.1f"), g_RangeWarn_NM);
+  m_pText_Range_Warn->SetValue(s);
+  
   //      Lost Targets
   m_pCheck_Mark_Lost->SetValue(g_bMarkLost);
 
@@ -7630,6 +7646,8 @@ void options::OnApplyClick(wxCommandEvent& event) {
   m_pText_CPA_Warn->GetValue().ToDouble(&g_CPAWarn_NM);
   g_bTCPA_Max = m_pCheck_CPA_WarnT->GetValue();
   m_pText_CPA_WarnT->GetValue().ToDouble(&g_TCPA_Max);
+  g_bRangeWarn = m_pCheck_Range_Warn->GetValue();
+  m_pText_Range_Warn->GetValue().ToDouble(&g_RangeWarn_NM);
 
   //   Lost Targets
   g_bMarkLost = m_pCheck_Mark_Lost->GetValue();

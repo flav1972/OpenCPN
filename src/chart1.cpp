@@ -594,6 +594,8 @@ bool                      g_bCPAWarn;
 double                    g_CPAWarn_NM;
 bool                      g_bTCPA_Max;
 double                    g_TCPA_Max;
+bool                      g_bRangeWarn;
+double                    g_RangeWarn_NM;
 bool                      g_bMarkLost;
 double                    g_MarkLost_Mins;
 bool                      g_bRemoveLost;
